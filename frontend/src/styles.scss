@@ -1,0 +1,158 @@
+:root {
+  --bg: #f5efe8;
+  --panel: #fffdfb;
+  --card: #ffffff;
+  --primary: #5f7c5d;
+  --primary-dark: #243927;
+  --accent: #dcae7f;
+  --text: #1d1c1a;
+  --muted: #5b5b57;
+  --border: #e7ddd2;
+  --danger: #a64343;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Inter, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #f6f1ea 0%, #fff 100%);
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+.container {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.page {
+  padding: 2rem 0 3rem;
+}
+
+.header {
+  background: #f6efe8;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 72px;
+}
+
+.brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: var(--muted);
+}
+
+.nav a {
+  padding: 0.6rem 0.8rem;
+  border-radius: 9px;
+  transition: 0.2s ease;
+}
+
+.nav a:hover {
+  background: rgba(95, 124, 93, 0.08);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(15, 17, 15, 0.04);
+}
+
+.button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.button.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.button.secondary {
+  background: #f0e7de;
+  color: var(--text);
+}
+
+.button.danger {
+  background: var(--danger);
+  color: white;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.form-row {
+  display: grid;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+input, select, textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  color: var(--text);
+  padding: 0.8rem 0.9rem;
+}
+
+.error {
+  color: var(--danger);
+  padding: 0.5rem 0;
+}
+
+.success {
+  color: var(--primary-dark);
+  padding: 0.5rem 0;
+}
+
+@mixin mobile { @media (max-width: 768px) { @content; } }
+
+@media (max-width: 768px) {
+  .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 0;
+  }
+}
